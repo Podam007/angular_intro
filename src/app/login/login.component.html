@@ -1,0 +1,22 @@
+<div class="login-wrapper">
+  <form class="login">
+    <section class="title">
+      <h3 class="welcome">Welcome to</h3>
+      Company Product Name
+      <h5 class="hint">Use your Company ID to sign in or create one now</h5>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <input type="text" [(ngModel)]="username" name="username" clrInput placeholder="Username" />
+      </clr-input-container>
+      <clr-password-container>
+        <input type="password" [(ngModel)]="password" name="password" clrPassword placeholder="Password" />
+      </clr-password-container>
+      <div class="error active" *ngIf="texterror">
+        ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="doLogin()">เข้าสู่ระบบ</button>
+      <a href="javascript://" class="signup">สมัครสมาชิกใหม่</a>
+    </div>
+  </form>
+</div>

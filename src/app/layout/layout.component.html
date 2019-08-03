@@ -1,0 +1,42 @@
+<div class="main-container">
+  <header class="header header-6">
+    <div class="branding">
+      <a href="..." class="nav-link">
+        <clr-icon shape="vm-bug"></clr-icon>
+        <span class="title">Project Clarity</span>
+      </a>
+    </div>
+    <div class="header-actions">
+      <clr-dropdown *ngIf="datauser">
+        <button class="nav-text" clrDropdownTrigger>
+          {{datauser?.pname}}{{datauser?.fname}} {{datauser?.lname}}
+          <clr-icon shape="caret down"></clr-icon>
+        </button>
+        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+          <a href="..." clrDropdownItem>Preferences</a>
+          <a role="button" clrDropdownItem (click)="doLogout()">ออกจากระบบ</a>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+      <a [routerLink]="['login']" class=" nav-link nav-text" *ngIf="!datauser">
+        เข้าสู่ระบบ
+      </a>
+    </div>
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+    <nav class="sidenav">
+      <section class="sidenav-content">
+        <section class="nav-group collapsible">
+          <input id="tabexample1" type="checkbox">
+          <label for="tabexample1">เมนู</label>
+          <ul class="nav-list">
+            <li><a [routerLink]="['home']" class="nav-link">หน้า Home</a></li>
+            <li><a [routerLink]="['add']" class="nav-link">หน้า เพิ่มข้อมูล</a></li>
+          </ul>
+        </section>
+      </section>
+    </nav>
+  </div>
+</div>

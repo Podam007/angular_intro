@@ -1,0 +1,16 @@
+<form clrForm>
+  <clr-input-container>
+    <label>13 หลัก</label>
+    <input clrInput type="text" [(ngModel)]="model.cid" name="cid" />
+  </clr-input-container>
+  <clr-input-container>
+    <label>ชื่อ</label>
+    <input clrInput type="text" [(ngModel)]="model.name" name="name" />
+  </clr-input-container>
+  <clr-input-container>
+    <label>นามสกุล</label>
+    <input clrInput type="text" [(ngModel)]="model.lname" name="lname" />
+  </clr-input-container>
+</form>
+
+<button class="btn btn-outline" (click)="save()">บันทึกข้อมูล</button>

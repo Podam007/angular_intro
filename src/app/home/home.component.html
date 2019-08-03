@@ -1,0 +1,57 @@
+<button class="btn btn-success" (click)="toadd()">เพิ่มข้อมูล</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ลำดับ</th>
+      <th>รหัส</th>
+      <th>ชื่อ</th>
+      <th>แก้ไข</th>
+      <th>ลบ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of showData;let i = index">
+      <td>{{i+1}}</td>
+      <td>{{item.cid}}</td>
+      <td>{{item.name}} {{item.lname}}</td>
+      <td><button class="btn btn-primary" (click)="edit(item)">แก้ไข</button></td>
+      <td><button class="btn btn-danger" (click)="del(item.id);">ลบ</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<div class="modal" *ngIf="showedit">
+  <div class="modal-dialog" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-label="Close" class="close" type="button">
+          <clr-icon aria-hidden="true" shape="close" (click)="cl()"></clr-icon>
+        </button>
+        <h3 class="modal-title">แก้ไขข้อมูล</h3>
+      </div>
+      <div class="modal-body">
+        <form clrForm>
+          <clr-input-container>
+            <label>13 หลัก</label>
+            <input clrInput type="text" [(ngModel)]="model.cid" name="cid" />
+          </clr-input-container>
+          <clr-input-container>
+            <label>ชื่อ</label>
+            <input clrInput type="text" [(ngModel)]="model.name" name="name" />
+          </clr-input-container>
+          <clr-input-container>
+            <label>นามสกุล</label>
+            <input clrInput type="text" [(ngModel)]="model.lname" name="lname" />
+          </clr-input-container>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" type="button" (click)="cl()">ยกเลิก</button>
+        <button class="btn btn-primary" type="button" (click)="save()">บันทึก</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" aria-hidden="true" *ngIf="showedit"></div>
